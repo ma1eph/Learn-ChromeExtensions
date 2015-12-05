@@ -52,7 +52,7 @@
 - Manifest.json
 - background.js
 - popup.html
-- icon19.png 19x19
+- icon19.png (19x19)
 
 #### Manifest.json
 
@@ -70,19 +70,10 @@
 #### popup.html
 
 ```html:popup.html
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8">
-</head>
-<body style="min-width: 200px;">
 <ul>
   <li id="red">Red</li>
   <li id="yellow">Yellow</li>
 </ul>
-<script src="myscript.js"></script>
-</body>
-</html>
 ```
 
 #### myscript.js
