@@ -1,0 +1,16 @@
+{
+  "name": "PageAction1",
+  "description": "Sample page_action",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+
+  "content_scripts": [{
+    "matches": [ "https://www.google.co.jp/*" ],
+    "js": [ "myscript.js" ]
+  }],
+
+  "manifest_version": 2
+}
