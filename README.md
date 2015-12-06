@@ -50,7 +50,7 @@
 ### ファイル
 
 - Manifest.json
-- background.js
+- myscript.js
 - popup.html
 - icon19.png (19x19)
 
@@ -112,7 +112,6 @@ document.getElementById('yellow').onclick = function() {
 
 ### Manifest.json
 
-
 ```json:Manifest.json
   "permissions": [
     "tabs", "http://*/*", "https://*/*"
@@ -139,8 +138,6 @@ chrome.browserAction.onClicked.addListener(function() {
 ```
 
 ### 関連リンク
-
-- [https://developer.chrome.com/extensions/content_scripts](https://developer.chrome.com/extensions/content_scripts)
 
 - [https://developer.chrome.com/extensions/browserAction#event-onClicked](https://developer.chrome.com/extensions/browserAction#event-onClicked)
 
