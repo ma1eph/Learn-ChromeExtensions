@@ -1,0 +1,21 @@
+{
+  "name": "PageAction2",
+  "description": "Sample page_action",
+  "version": "1.0",
+
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+
+  "background": {
+    "scripts": [ "json2.js", "background.js" ],
+    "persistent": false
+  },
+
+  "page_action": {
+    "default_name": "PageAction1",
+    "default_icon": "icon19.png"
+  },
+
+  "manifest_version": 2
+}
