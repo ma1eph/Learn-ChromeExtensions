@@ -381,3 +381,46 @@ chrome.contextMenus.create({
 
 --------------------------------------------------------------------------------
 
+## KeyBind1
+
+- Menifest に commands (suggested_key) を定義
+- background に chrome.commands.onCommand を実装
+
+### ファイル
+
+- Manifest.json
+- background.js
+
+#### Manifest.json
+
+```
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+
+  "commands": {
+    "command1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "command1"
+    }
+  },
+```
+
+#### background.js
+
+```
+chrome.commands.onCommand.addListener(function(command) {
+  if (command === 'command1') {
+     console.log('Do your stuff');
+  }
+});
+```
+
+### 関連リンク
+
+- [https://developer.chrome.com/extensions/manifest](https://developer.chrome.com/extensions/manifest)
+
+--------------------------------------------------------------------------------
+

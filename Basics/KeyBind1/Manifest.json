@@ -1,0 +1,20 @@
+{
+  "name": "KeyBind1",
+  "description": "Sample commands",
+  "version": "1.0",
+
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+
+  "commands": {
+    "command1": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+Y"
+      },
+      "description": "command1"
+    }
+  },
+
+  "manifest_version": 2
+}
