@@ -424,3 +424,42 @@ chrome.commands.onCommand.addListener(function(command) {
 
 --------------------------------------------------------------------------------
 
+## KeyBind2
+
+- content_script が key イベントをハンドル
+
+### ファイル
+
+- Manifest.json
+- content.js
+
+#### Manifest.json
+
+```
+  "content_scripts": [{
+    "matches": [ "*://*/*" ],
+    "js": [ "content.js" ]
+  }],
+```
+
+#### content.js
+
+```
+window.addEventListener('keydown', function(event) {
+  if ((!isMac && !event.ctrlKey) || (isMac && ! event.metaKey)) return;
+  if (!event.shiftKey) return;
+  var key = event.key
+  which (key) {
+  case 89: //'Y'
+    console.log('Do your stuff');
+    break;
+  }
+}, true);
+```
+
+### 関連リンク
+
+- [https://developer.chrome.com/extensions/manifest](https://developer.chrome.com/extensions/manifest)
+
+--------------------------------------------------------------------------------
+
