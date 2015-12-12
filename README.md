@@ -145,6 +145,98 @@ chrome.browserAction.onClicked.addListener(function() {
 
 --------------------------------------------------------------------------------
 
+## OptionsPage1
+
+-- オプション設定 options_page localStorage
+
+### ファイル
+
+- Manifest.json
+- options.html
+- options.js
+- background.js
+- icon19.png 19x19
+
+#### Manifest.json
+
+```Manifest.json
+  "permissions": [
+    "tabs", "http://*/*", "https://*/*"
+  ],
+  "background": {
+    "scripts": [ "background.js" ]
+  },
+  "options_page": "options.html",
+  "browser_action": {
+    "default_icon": "icon19.png",
+    "default_title": "OptionsPage1"
+  },
+```
+
+#### options.html
+
+```html:options.html
+  <input type="radio" name="colors" value="1">Red
+  <input type="radio" name="colors" value="2">Orange
+  <input type="radio" name="colors" value="3">Yellow
+  <button id="save">Save</button>
+  <script src="options.js"></script>
+```
+
+#### options.js
+
+```javascript:options.js
+var colors = document.getElementsByName('colors');
+
+document.getElementById('save').onclick = function() {
+  if (colors[0].checked) {
+    localStorage['color'] = 'red';
+  } else if (colors[1].checked) {
+    localStorage['color'] = 'orange';
+  } else if (colors[2].checked) {
+    localStorage['color'] = 'yellow';
+  }
+}
+
+document.body.onload = function() {
+  switch (localStorage['color']) {
+    case 'red':
+      colors[0].checked = true;
+      break;
+    case 'orange':
+      colors[1].checked = true;
+      break;
+    case 'yellow':
+      colors[2].checked = true;
+      break;
+    default:
+      colors[0].checked = true;
+      break;
+  }
+}
+```
+
+#### background.js
+
+```javascript:background.js
+// https://developer.chrome.com/extensions/browserAction#event-onClicked
+chrome.browserAction.onClicked.addListener(function() {
+  var color = localStorage['color'] ? localStorage['color'] : 'red';
+  // https://developer.chrome.com/extensions/tabs#method-executeScript
+  chrome.tabs.executeScript(null, {
+    "code": "document.body.style.backgroundColor='"+color+"'"
+  });
+});
+```
+
+### 関連リンク
+
+- [https://developer.chrome.com/extensions/browserAction#event-onClicked](https://developer.chrome.com/extensions/browserAction#event-onClicked)
+
+- [https://developer.chrome.com/extensions/tabs#method-executeScript](https://developer.chrome.com/extensions/tabs#method-executeScript)
+
+--------------------------------------------------------------------------------
+
 ## PageAction1
 
 - 特定のページにだけアイコン表示 (page_action)
